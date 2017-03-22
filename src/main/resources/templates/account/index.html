@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head th:replace="base/table :: head" />
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header class="main-header" th:replace="base/menu :: main-header" />
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar" th:replace="base/menu :: main-sidebar" />
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					<span th:text="${pageName}">Simple Tables</span> <small
+						th:text="${pageNameDesc}">preview of simple tables</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li><a href="#">Tables</a></li>
+					<li class="active">Simple</li>
+				</ol>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="box">
+							<div class="box-header with-border">
+								<h3 class="box-title" th:text="${tableName}">Bordered Table</h3>
+								<div class="box-tools">
+									<form th:action="@{/account/search}" method="get">
+										<div class="input-group input-group-sm" style="width: 300px;">
+											<div class="input-group-btn">
+												<a class="btn btn-info" th:href="@{/account/create}"> <i
+													class="fa fa-plus"></i>
+												</a>
+											</div>
+											<input type="text" name="q" class="form-control pull-right"
+												placeholder="Search" />
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-info">
+													<i class="fa fa-search"></i>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body" th:unless="${#lists.isEmpty(listEntity)}">
+								<table class="table table-bordered">
+									<tr>
+										<th style="width: 10px">id</th>
+										<th>email</th>
+										<th>phone</th>
+										<th>username</th>
+										<th>note</th>
+										<th>permissions</th>
+										<th>activated</th>
+										<th>activatedAt</th>
+										<th>lastLogin</th>
+										<th>createdAt</th>
+										<th>updatedAt</th>
+										<!-- <th>deletedAt</th> -->
+										<th>action</th>
+									</tr>
+									<tr th:each="entity : ${listEntity}">
+										<td th:text="${{entity.id}}" />
+										<td><a th:href="@{/account/{id}(id=${entity.id})}"><span
+												th:text="${{entity.email}}">email</span></a></td>
+										<td th:text="${{entity.phone}}" />
+										<td th:text="${{entity.username}}" />
+										<td th:text="${{entity.note}}" />
+										<td th:text="${{entity.permissions}}" />
+										<td th:text="${{entity.activated}}" />
+										<td th:text="${{entity.activatedAt}}" />
+										<td th:text="${{entity.lastLogin}}" />
+										<td th:text="${{entity.createdAt}}" />
+										<td th:text="${{entity.updatedAt}}" />
+										<!-- <td th:text="${{entity.deletedAt}}" /> -->
+										<td><a th:href="@{/account/{id}/edit(id=${entity.id})}"><i
+												class="fa fa-edit" /></a> <a
+											th:href="@{/account/{id}/delete(id=${entity.id})}"><i
+												class="fa fa-trash-o" /></a></td>
+									</tr>
+
+								</table>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer clearfix">
+
+								<div class="col-sm-6">
+									<div sd:pagination-summary="">info</div>
+								</div>
+
+								<div class="col-sm-6">
+									<nav class="pull-right">
+										<ul class="pagination pagination-sm no-margin pull-right" sd:pagination="full">
+											<!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+											<li class="disabled"><a href="#" aria-label="Previous">
+													<span aria-hidden="true">&laquo;</span>
+											</a></li>
+											<li class="active"><a href="#">1 <span
+													class="sr-only">(current)</span>
+											</a></li>
+										</ul>
+									</nav>
+								</div>
+
+							</div>
+
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer" th:replace="base/menu :: main-footer" />
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark"
+			th:replace="base/menu :: control-sidebar" />
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+      immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<!-- ./wrapper -->
+
+	<div th:replace="base/table :: jquery" />
+</body>
+</html>

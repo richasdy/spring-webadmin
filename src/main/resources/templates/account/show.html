@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="base/form :: head" />
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header class="main-header" th:replace="base/menu :: main-header" />
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar" th:replace="base/menu :: main-sidebar" />
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					<span th:text="${pageName}">Simple Tables</span> <small th:text="${pageNameDesc}">preview of simple tables</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li><a href="#">Tables</a></li>
+					<li class="active">Simple</li>
+				</ol>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<h3 class="box-title" th:text="${formName}">Horizontal Form</h3>
+							</div>
+							<!-- /.box-header -->
+
+							<!-- form start -->
+
+							<form class="form-horizontal" action="#">
+								<div class="box-body">
+								
+								<div class="form-group">
+										<label for="inputEmail" class="col-sm-2 control-label">Id</label>
+
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.id}">
+												1 </span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.email}">
+												donni.richasdy@gmail.com </span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.phone}">
+												0852687856123 </span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputUsername" class="col-sm-2 control-label">Username</label>
+
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.username}">
+												richasdy </span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Note</label>
+
+										<div class="col-sm-9">
+											<textarea class="form-control" rows="3" id="inputNote"
+												placeholder="Enter ..." th:text="${entity.note}" disabled="disabled">this is note</textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputPermission" class="col-sm-2 control-label">Permissions</label>
+
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.permissions}">
+												admin </span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Activated</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.activated}">
+												Active </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Activated At</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.activatedAt}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Last Login</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.lastLogin}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Persist Code</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.persistCode}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Reset Password Code</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.resetPasswordCode}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Created At</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.createdAt}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Updated At</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.updatedAt}">
+												Sekarang </span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNote" class="col-sm-2 control-label">Deleted At</label>
+										<div class="col-sm-9">
+											<span class="form-control" th:text="${entity.deletedAt}">
+												Sekarang </span>
+										</div>
+									</div>
+
+								</div>
+								<!-- /.box-body -->
+								<div class="box-footer">
+									<a class="btn btn-default" th:href="@{/account}">Back to table</a> <a
+										class="btn btn-info pull-right"
+										th:href="@{/account/{id}/edit(id=${entity.id})}">Edit</a>
+								</div>
+								<!-- /.box-footer -->
+							</form>
+
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<footer class="main-footer" th:replace="base/menu :: main-footer" />
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark"
+			th:replace="base/menu :: control-sidebar" />
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<!-- ./wrapper -->
+
+	<div th:replace="base/form :: jquery" />
+</body>
+</html>
